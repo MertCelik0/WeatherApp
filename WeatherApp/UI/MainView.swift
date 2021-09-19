@@ -25,25 +25,25 @@ struct MainView: View {
             
 //          Page add scrolling
             ScrollView (.vertical, showsIndicators: false) {
-            
-                VStack{
-           
-                    HStack {
-                    
-                        Spacer()
-                        
-//                      Add right top settings image
-                        Image(systemName: "gearshape")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.white)
-
-                        
-                    }
-                    
-                }
-                .padding()
+//            
+//                VStack{
+//           
+//                    HStack {
+//                    
+//                        Spacer()
+//                        
+////                      Add right top settings image
+//                        Image(systemName: "gearshape")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 20, height: 20)
+//                            .foregroundColor(.white)
+//
+//                        
+//                    }
+//                    
+//                }
+//                .padding()
                 
 //              Set current data and bind image, text vb. objects.
                 TodayNowDataView(City: weatherdata?.name ?? "", Country: weatherdata?.sys.country ?? "", Weather: "weather", Temp: convertToCelsius(fahrenheit: Int(weatherdata?.main.temp ?? 0.0)))
@@ -209,7 +209,7 @@ struct MainView_Previews: PreviewProvider {
 
 struct SetBackground: View {
     var body: some View {
-        Color(.black)
+        Color("lightBlue")
             .edgesIgnoringSafeArea(.all)
     }
 }
@@ -227,9 +227,9 @@ struct TodayNowDataView: View {
                 .font(.system(size: 30, weight: .medium, design: .default))
                 .foregroundColor(.white)
             
-            Text(Weather)
-                .font(.system(size: 20, weight: .thin, design: .default))
-                .foregroundColor(.white)
+         //   Text(Weather)
+             //   .font(.system(size: 20, weight: .thin, design: .default))
+              //  .foregroundColor(.white)
             
             
             Text("\(Temp)°")
