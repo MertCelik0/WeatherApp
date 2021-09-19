@@ -14,8 +14,7 @@ struct MainView: View {
     
 //  Forecast days weather sturct data variable
     @State private var weatherdataforecast: WeatherDataForecast?
-    
-    
+        
     var body: some View {
         
         
@@ -93,29 +92,35 @@ struct MainView: View {
                     
                 } .padding()
               
-                
-                VStack(alignment: .leading) {
-                    
-                    //Forecast Data
-                    ForEach(weatherdataforecast?.list.indices ?? WeatherDataForecast(list: [ListForecast(main: MainForecast(temp: 0.0, temp_max: 0.0, temp_min: 0.0, feels_like: 0.0, humidity: 0), weather: [WeatherForecast(main: "", description: "", icon: "")], dt_txt: "")]).list.indices , id: \.self) { index in
-                        
-//                      Check current day and webservices date not equals
-                        if !String(weatherdataforecast?.list[index].dt_txt.prefix(10) ?? "").contains(String(DateFormatter(timeinterval: weatherdata?.dt ?? 1).prefix(10))) {
-                            
-//                          Get data with index
-                            let datas = weatherdataforecast?.list[index]
-                            
-//                          Set forecast day data
-                            ForecastAllDay(Day: String(datas?.dt_txt.prefix(10) ?? "") ,
-                                           Image: "cloud.sun.fill",
-                                           minTemp: (convertToCelsius(fahrenheit: Int(datas?.main.temp_min ?? 0))),
-                                           maxTemp: (convertToCelsius(fahrenheit: Int(datas?.main.temp_max ?? 0))))
-                        }
-                        
-                    }
-                    
-                }
-                .padding()
+//
+//                VStack(alignment: .leading) {
+//
+//
+//                    //Forecast Data
+//                    ForEach(weatherdataforecast?.list.indices ?? WeatherDataForecast(list: [ListForecast(main: MainForecast(temp: 0.0, temp_max: 0.0, temp_min: 0.0, feels_like: 0.0, humidity: 0), weather: [WeatherForecast(main: "", description: "", icon: "")], dt_txt: "")]).list.indices , id: \.self) { index in
+//
+////                      Check current day and webservices date not equals
+//                        if !String(weatherdataforecast?.list[index].dt_txt.prefix(10) ?? "").contains(String(DateFormatter(timeinterval: weatherdata?.dt ?? 1).prefix(10))) {
+////                          Get data with index
+//
+//                            let datas = weatherdataforecast?.list[index]
+//                            if String(datas?.dt_txt.prefix(10) ?? "").contains(String(datas?.dt_txt.prefix(10) ?? "")) {
+//
+//
+//     //                               Set forecast day data
+//                            ForecastAllDay(Day: String(datas?.dt_txt.prefix(10) ?? "") ,
+//                                                  Image: "cloud.sun.fill",
+//                                                minTemp: (convertToCelsius(fahrenheit: Int(datas?.main.temp_min ?? 0))),
+//                                                  maxTemp: (convertToCelsius(fahrenheit: Int(datas?.main.temp_max ?? 0))))
+//                            }
+//
+//
+////
+//                        }
+//                    }
+//
+//                }
+//                .padding()
                 
 //              Add current day informations. (Clouds, max-min temp, humidity, sunset - sunrise vb.)
                 VStack(alignment:.leading) {

@@ -75,6 +75,8 @@ struct WeatherForecast: Decodable {
     let icon: String
 }
 
+
+
 // TIMEINTERVAL TO STRING DATE
 func DateFormatter(timeinterval: TimeInterval) -> String {
     let dateFormatter = DateFormatter()
@@ -118,3 +120,4 @@ func getNSDATE(Day: String) -> NSDate{
     }
  
 }
+
